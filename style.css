@@ -7,8 +7,13 @@ h1 {
   padding-left: 10px;
 }
 
-h4 {
+h5 {
   padding-left: 10px;
+}
+
+h3 {
+  margin-left: 335px;
+  margin-top: 20px;
 }
 
 p {
@@ -21,8 +26,14 @@ p {
   background-color: white;
 }
 #search-input {
-  margin-left: 5px;
+  margin-left: 10px;
   height: 36px;
   margin-top: 8px;
   background-color: white;
+}
+
+.forecastDisplay {
+  width: 75%;
+  margin-top: 20px;
+  margin-left: 320px;
 }
