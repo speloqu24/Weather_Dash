@@ -1,18 +1,19 @@
 $(document).ready(function() {
 
-
-    var getCurrent = function () {
+// Function runs the entire back end
+    var getWeather = function () {
         $("#current-display").empty();
 
         var cityInput = $("#search-input").val().trim();
         var requestWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&appid=1a201dc845b8d910adc7977e4bac7b00&units=imperial";
         
+// AJAX call/fetch the CURRENT API data we're requesting 
         $.ajax ({
             url: requestWeather,
             method: "GET",
         }).then (function (data){
-            console.log(data)
-            // div everything is located in 
+            
+// LOCATE / Create elements dynamically 
             var currentCity = $("#current-display");
             var currentCityName = $("<h1>");
             var currentTemp = $("<p>");
@@ -25,9 +26,10 @@ $(document).ready(function() {
             var icons = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
             
         
-        
+// SET the URL attribute in order to display the weather icons
         currentIcon.attr("src", icons);
 
+// CREATE text for created elements where data will display
         currentCityName.text(data.name)
         currentTemp.text("Actual: " + (data.main.temp) + "°F");
         feelsLike.text("Feels Like: " + (data.main.feels_like) + "°F");
@@ -35,6 +37,7 @@ $(document).ready(function() {
         humidity.text("Humidity: " + (data.main.humidity) + "%");
         wind.text("Wind Speed: " + (data.wind.speed));
 
+// APPEND each text element to the the main div
         currentCity.append(currentCityName)
         currentCity.append(currentIcon)
         currentCity.append(description)
@@ -46,51 +49,38 @@ $(document).ready(function() {
         })
 
         var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput + "&appid=1a201dc845b8d910adc7977e4bac7b00&units=imperial";
-
+        
+// AJAX call/fetch the FIVE DAY API data we're requesting
         $.ajax ( {
             url: forecastURL,
             method: "GET",
         }).then (function (data){
-            console.log(data)
-        
-        // var cardDiv = $("#card-display");  
-        
+
+// EMPTY out this div between searches
         $(".forecastDisplay").empty();
 
+// TEMPLATE LITERALS to create and append the H3 title
         $(".display").append(`
         <h3> Five Day Forecast: </h3>
         `)
 
-        
-        
+// FOR LOOP iterates over the data the API returns for the 5day forecast. Using Template Literals the data is then displayed ( like 76 )
         for (var i = 0; i < data.list.length; i+=8) {
             
             var date = data.list[i].dt_txt;
             var temp = data.list[i].main.temp + "°F"
             var forecastIcon = data.list[i].weather[0].icon;
             var fiveDayIcons = "http://openweathermap.org/img/w/" + forecastIcon + ".png";
-            console.log(fiveDayIcons)
 
+// TEMPLATE LITERALS to create and append data   
             $(".forecastDisplay").append(`
             <div class= "col mb-4">
                 <div class= "card">${date}
-                <img src = "${fiveDayIcons}" width="50";>
-                <p>${temp}</p>
+                    <img src = "${fiveDayIcons}" width="50";>
+                    <p>${temp}</p>
                 </div>
             </div>
             `)
-
-            // var cardContext = 
-            //         // var temp = document.createElement("p")
-            
-
-            // date.textContent = data.list[i].dt_txt;
-            // console.log(data.list[i].dt_txt)
-            //         // temp.textContent = data.list[i].main.temp;
-            // fiveDayCard.append(date)
-            //         // fiveDayCard.append(temp)
-
-
                 }
 
         })
@@ -99,27 +89,7 @@ $(document).ready(function() {
 
     }
 
-
-// var getForecast = function (){ 
-
-// var forecastURL = 
-
-// $.ajax({
-//     url: 
-
-// })
-
-
-// }
-
-
-
-
-
-
-
     // On click
-    $("#search-btn").on("click", getCurrent);
-    // $("#search-btn").on("click", getForecast);
+    $("#search-btn").on("click", getWeather);
 
 });
