@@ -15,7 +15,7 @@ $(document).ready(function() {
             
 // LOCATE / Create elements dynamically 
             var currentCity = $("#current-display");
-            var currentCityName = $("<h1>");
+            var currentCityName = $("<h2>");
             var currentTemp = $("<p>");
             var feelsLike = $("<p>");
             var humidity = $ ("<p>");
@@ -46,7 +46,20 @@ $(document).ready(function() {
         currentCity.append(humidity)
         currentCity.append(wind)
 
-        })
+        
+        localStorage.setItem("cityInput", cityInput)
+        var cityHistory = localStorage.getItem("cityInput");
+        
+        console.log(cityHistory)
+        
+        $("#search-history").append(`
+        <ul class= "list-group">
+                <li class= "list-group-item">${cityHistory}</li>
+        </ul
+        `)
+        
+})
+
 
         var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput + "&appid=1a201dc845b8d910adc7977e4bac7b00&units=imperial";
         
@@ -60,6 +73,8 @@ $(document).ready(function() {
         $(".forecastDisplay").empty();
 
 // TEMPLATE LITERALS to create and append the H3 title
+
+        $(".display").empty();
         $(".display").append(`
         <h3> Five Day Forecast: </h3>
         `)
@@ -87,7 +102,14 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
     }
+
+
 
     // On click
     $("#search-btn").on("click", getWeather);
