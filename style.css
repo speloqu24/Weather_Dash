@@ -7,7 +7,8 @@ h1 {
   margin-left: 35%;
 }
 
-h5 {
+h2 {
+  color: black;
   padding-left: 10px;
 }
 
@@ -16,10 +17,19 @@ h3 {
   margin-top: 20px;
 }
 
+h5 {
+  padding-left: 10px;
+  color: rgb(34, 105, 212);
+  margin-bottom: 10px;
+}
+
 p {
   padding-left: 10px;
 }
 
+.list-group-item {
+  margin-bottom: 5px;
+}
 #current-display {
   margin-top: 10px;
   width: 75%;
@@ -32,20 +42,14 @@ p {
   margin-top: 10px;
   background-color: white;
   color: black;
-  border-color: rgb(52, 157, 52);
+  border-color: white;
 }
-
-/* #search-btn {
-  background-color: white;
-  height: 36px;
-  color: rgb(52, 157, 52);
-  border-color: rgb(52, 157, 52);
-} */
 
 #search-history {
   margin-left: 25px;
   margin-top: 10px;
   width: 73%;
+  color: black;
 }
 
 .forecastDisplay {
@@ -55,7 +59,7 @@ p {
 }
 
 .card {
-  background-color: rgb(34, 105, 212);
+  background-color: rgb(52, 157, 52);
   color: white;
   font-weight: bolder;
   width: auto;
