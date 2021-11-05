@@ -9,7 +9,7 @@ $(document).ready(function () {
       cityInput +
       "&appid=1a201dc845b8d910adc7977e4bac7b00&units=imperial";
 
-    // AJAX call/fetch the CURRENT API data we're requesting
+    // AJAX CURRENT API data we're requesting
     $.ajax({
       url: requestWeather,
       method: "GET",
