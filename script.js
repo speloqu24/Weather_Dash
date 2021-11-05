@@ -91,7 +91,7 @@ $(document).ready(function () {
         var fiveDayIcons =
           "http://openweathermap.org/img/w/" + forecastIcon + ".png";
 
-        // TEMPLATE LITERALS to create and append data
+        // TEMPLATE LITERALS to create and append
         $(".forecastDisplay").append(`
             <div class= "col mb-4">
                 <div id= "forecastDate" class= "card">${date}
@@ -105,6 +105,6 @@ $(document).ready(function () {
     });
   };
 
-  // On click
+  // On click, updated the onclick 
   $("#search-btn").on("click", getWeather);
 });
