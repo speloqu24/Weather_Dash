@@ -9,7 +9,7 @@ $(document).ready(function () {
       cityInput +
       "&appid=1a201dc845b8d910adc7977e4bac7b00&units=imperial";
 
-    // AJAX call/fetch the CURRENT API data we're requesting
+    // AJAX CURRENT API data we're requesting
     $.ajax({
       url: requestWeather,
       method: "GET",
@@ -38,7 +38,7 @@ $(document).ready(function () {
       humidity.text("Humidity: " + data.main.humidity + "%");
       wind.text("Wind Speed: " + data.wind.speed);
 
-      // APPEND each text element to the the main div
+      // APPEND each text element to the the main div for display
       currentCity.append(currentCityName);
       currentCity.append(currentIcon);
       currentCity.append(description);
@@ -67,7 +67,7 @@ $(document).ready(function () {
       cityInput +
       "&appid=1a201dc845b8d910adc7977e4bac7b00&units=imperial";
 
-    // AJAX call/fetch the FIVE DAY API data we're requesting
+    // AJAX call/fetch the FIVE DAY API data we're requesting to gather the data 
     $.ajax({
       url: forecastURL,
       method: "GET",
@@ -91,7 +91,7 @@ $(document).ready(function () {
         var fiveDayIcons =
           "http://openweathermap.org/img/w/" + forecastIcon + ".png";
 
-        // TEMPLATE LITERALS to create and append data
+        // TEMPLATE LITERALS to create and append
         $(".forecastDisplay").append(`
             <div class= "col mb-4">
                 <div id= "forecastDate" class= "card">${date}
@@ -105,6 +105,6 @@ $(document).ready(function () {
     });
   };
 
-  // On click
+  // On click, updated the onclick 
   $("#search-btn").on("click", getWeather);
 });
