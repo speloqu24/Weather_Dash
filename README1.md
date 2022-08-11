@@ -14,7 +14,7 @@ It may have taken a few tries to really get started creating HTML elements dynam
 
 # Template Literals
 
-It was another insight into how to shorten code and approach by combining JQUERY and Template literals to create elements. This is probably my new favorite part of coding.
+It was another insight into how to shorten code and approach by combining JQUERY and Template literals to create elements.
 
 # Screenshot
 
