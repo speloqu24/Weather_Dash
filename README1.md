@@ -1,6 +1,6 @@
 Updates have been made! 
 
-# Project Objective
+# Project Objective uPDATES!
 
 Link: https://speloqu24.github.io/Weather_Dash/
 
